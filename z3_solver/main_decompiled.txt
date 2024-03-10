@@ -1,0 +1,42 @@
+int __fastcall main(int argc, const char **argv, const char **envp)
+{
+  __int64 v3; // rax
+  int v4; // eax
+  char *v5; // rcx
+  char v7[64]; // [rsp+20h] [rbp-58h] BYREF
+
+  memset(v7, 0, sizeof(v7));
+  printf("flag format is FLAG\\{[ -~]+\\}\ninput : ");
+  scanf("%63s");
+  v3 = -1LL;
+  do
+    ++v3;
+  while ( v7[v3] );
+  if ( v3 == 16
+    && (v7[0] ^ v7[3]) == 1
+    && (v7[1] ^ v7[11]) == 35
+    && (v7[1] ^ (unsigned __int8)(v7[2] ^ v7[14])) == 105
+    && (v7[3] ^ (unsigned __int8)(v7[14] ^ v7[8])) == 79
+    && (v7[12] ^ (unsigned __int8)(v7[4] ^ v7[13])) == 101
+    && (v7[5] ^ v7[9]) == 7
+    && (v7[13] ^ v7[6]) == 9
+    && (v7[2] ^ (unsigned __int8)(v7[7] ^ v7[15])) == 80
+    && (v7[1] ^ v7[8]) == 32
+    && (v7[2] ^ (unsigned __int8)(v7[12] ^ v7[9])) == 92
+    && (v7[3] ^ (unsigned __int8)(v7[14] ^ v7[10])) == 84
+    && (v7[11] ^ v7[5]) == 7 )
+  {
+    v4 = 0;
+    if ( (v7[14] ^ (unsigned __int8)(v7[13] ^ v7[10])) == 127 )
+      LOBYTE(v4) = (v7[5] ^ v7[15]) == 21;
+  }
+  else
+  {
+    v4 = 0;
+  }
+  v5 = "congratulations!\n";
+  if ( !v4 )
+    v5 = "failed.\n";
+  printf(v5);
+  return 0;
+}
